@@ -21,6 +21,8 @@ fn value_in_cents(coin: Coin) -> u8 {
 }
 
 fn main() {
-    let coin = Coin::Quarter("California".to_string());
+    // let coin = Coin::Quarter("California".to_string());
+    // println!("Value: {} cents", value_in_cents(coin));
+    let coin = Coin::Penny;
     println!("Value: {} cents", value_in_cents(coin));
 }

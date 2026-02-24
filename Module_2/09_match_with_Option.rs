@@ -3,6 +3,8 @@ fn main() {
     let no_number: Option<i32> = None;
     
     // Safe handling of Option
+    // Option<i32> double_if_exists(Option<i32> x) { ...}
+
     fn double_if_exists(x: Option<i32>) -> Option<i32> {
         match x {
             Some(value) => Some(value * 2),
