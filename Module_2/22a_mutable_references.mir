@@ -1,0 +1,135 @@
+// WARNING: This output format is intended for human consumers only
+// and is subject to change without notice. Knock yourself out.
+// HINT: See also -Z dump-mir for MIR at specific points during compilation.
+fn main() -> () {
+    let mut _0: ();
+    let mut _1: std::string::String;
+    let _2: ();
+    let mut _3: std::fmt::Arguments<'_>;
+    let mut _5: &std::string::String;
+    let mut _7: core::fmt::rt::Argument<'_>;
+    let mut _8: &[u8; 9];
+    let _9: &[core::fmt::rt::Argument<'_>; 1];
+    let _10: ();
+    let mut _11: &mut std::string::String;
+    let _12: ();
+    let mut _13: std::fmt::Arguments<'_>;
+    let mut _15: &std::string::String;
+    let mut _17: core::fmt::rt::Argument<'_>;
+    let mut _18: &[u8; 9];
+    let _19: &[core::fmt::rt::Argument<'_>; 1];
+    let mut _20: &std::string::String;
+    let mut _21: &std::string::String;
+    scope 1 {
+        debug s => _1;
+        let _4: (&std::string::String,);
+        let _14: (&std::string::String,);
+        scope 2 {
+            debug args => _4;
+            let _6: [core::fmt::rt::Argument<'_>; 1];
+            scope 3 {
+                debug args => _6;
+            }
+        }
+        scope 4 {
+            debug args => _14;
+            let _16: [core::fmt::rt::Argument<'_>; 1];
+            scope 5 {
+                debug args => _16;
+            }
+        }
+    }
+
+    bb0: {
+        _1 = <String as From<&str>>::from(const "hello") -> [return: bb1, unwind continue];
+    }
+
+    bb1: {
+        _5 = &_1;
+        _4 = (move _5,);
+        _20 = copy (_4.0: &std::string::String);
+        _7 = core::fmt::rt::Argument::<'_>::new_display::<String>(copy _20) -> [return: bb2, unwind: bb10];
+    }
+
+    bb2: {
+        _6 = [move _7];
+        _8 = const b"\x04s = \xc0\x01\n\x00";
+        _9 = &_6;
+        _3 = Arguments::<'_>::new::<9, 1>(move _8, copy _9) -> [return: bb3, unwind: bb10];
+    }
+
+    bb3: {
+        _2 = _print(move _3) -> [return: bb4, unwind: bb10];
+    }
+
+    bb4: {
+        _11 = &mut _1;
+        _10 = modify(copy _11) -> [return: bb5, unwind: bb10];
+    }
+
+    bb5: {
+        _15 = &_1;
+        _14 = (move _15,);
+        _21 = copy (_14.0: &std::string::String);
+        _17 = core::fmt::rt::Argument::<'_>::new_display::<String>(copy _21) -> [return: bb6, unwind: bb10];
+    }
+
+    bb6: {
+        _16 = [move _17];
+        _18 = const b"\x04s = \xc0\x01\n\x00";
+        _19 = &_16;
+        _13 = Arguments::<'_>::new::<9, 1>(move _18, copy _19) -> [return: bb7, unwind: bb10];
+    }
+
+    bb7: {
+        _12 = _print(move _13) -> [return: bb8, unwind: bb10];
+    }
+
+    bb8: {
+        drop(_1) -> [return: bb9, unwind continue];
+    }
+
+    bb9: {
+        return;
+    }
+
+    bb10 (cleanup): {
+        drop(_1) -> [return: bb11, unwind terminate(cleanup)];
+    }
+
+    bb11 (cleanup): {
+        resume;
+    }
+}
+
+alloc2 (size: 9, align: 1) {
+    04 73 20 3d 20 c0 01 0a 00                      │ .s = ....
+}
+
+alloc1 (size: 5, align: 1) {
+    68 65 6c 6c 6f                                  │ hello
+}
+
+fn modify(_1: &mut String) -> () {
+    debug s => _1;
+    let mut _0: ();
+    let _2: ();
+    let mut _3: &str;
+
+    bb0: {
+        _3 = const "!";
+        _2 = String::push_str(copy _1, move _3) -> [return: bb1, unwind continue];
+    }
+
+    bb1: {
+        _0 = std::mem::drop::<&mut String>(copy _1) -> [return: bb2, unwind continue];
+    }
+
+    bb2: {
+        return;
+    }
+}
+
+alloc3 (size: 1, align: 1) {
+    21                                              │ !
+}

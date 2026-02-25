@@ -1,4 +1,4 @@
-fn main() {
+/* fn main() {
     let s1 = String::from("hello");
     let (s2, len) = calculate_length(s1);
     println!("'{}' length is {}", s2, len);
@@ -8,6 +8,8 @@ fn calculate_length(s: String) -> (String, usize) {
     let length = s.len();
     (s, length)  // Must return string to give ownership back
 }
+*/
+
 
 // WITH REFERENCES - much cleaner!
 fn main() {

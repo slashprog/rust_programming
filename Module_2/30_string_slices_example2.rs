@@ -26,10 +26,10 @@ fn first_word(s: &str) -> &str {  // Takes &str, more flexible!
 }
 
 fn main() {
-    let s = String::from("hello world");
+    let mut s = String::from("hello world");
     let word = first_word(&s);  // Works with &String
     // let word = first_word("hello world");  // Also works with &str!
     
-    // s.clear();  // ERROR: can't clear while borrowed!
+    s.clear();  // ERROR: can't clear while borrowed!
     println!("first word: {}", word);
 }
