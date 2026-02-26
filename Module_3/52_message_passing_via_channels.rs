@@ -16,6 +16,7 @@ fn main() {
         
         for val in vals {
             tx.send(val).unwrap();
+            //println!("Sent a message {}", val);
             // val MOVED, can't use after send!
         }
     });

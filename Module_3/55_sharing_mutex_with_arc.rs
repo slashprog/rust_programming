@@ -22,3 +22,4 @@ fn main() {
     
     println!("Result: {}", *counter.lock().unwrap());
     // Always 10 - no data races!
+}

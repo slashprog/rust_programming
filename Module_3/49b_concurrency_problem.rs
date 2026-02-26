@@ -1,19 +1,18 @@
 use std::thread;
 
 fn main() {
-    let mut counter = 0; 
+    let s = String::from("Hello"); 
     
-    let handle = thread::spawn(|| {
+    let s_clone = s.clone();
+    let handle = thread::spawn(move || {
         // counter copied here! Why? counter is on stack (Copy Trait)
-        let mut counter = 10;
-        counter += 1;  
-        println!("Counter in thread: {}", counter);
+        println!("In thread: s_clone = {}", s_clone);
     });
     println!("main thread: waiting for worker thread to complete.");
-    println!("{}", counter);  
+    println!("In main: s = {}", s);  
 
     handle.join().unwrap();
-    println!("main thread: worker thread has completed: counter = {}", counter);
+    // println!("main thread: worker thread has completed: s = {}", s);
 }
 
 // Rust's approach:
