@@ -11,4 +11,4 @@ fn main() {
     // Calling them is exactly the same
     let result = add_one_v2(5);
     println!("Result from closure: {}", result);
-}
+} 
