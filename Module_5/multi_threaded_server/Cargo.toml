@@ -1,0 +1,34 @@
+[package]
+name = "multi_threaded_server"
+version = "0.1.0"
+edition = "2021"
+authors = ["Chandrashekar Babu <training@chandrashekar.info>"]
+description = "Multi-threaded TCP server/client"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/slashprog/rust_programming"
+
+[dependencies]
+# For better error handling
+anyhow = "1.0"
+thiserror = "1.0"
+
+# For logging
+log = "0.4"
+env_logger = "0.10"
+
+# For cross-platform signal handling
+ctrlc = "3.4"
+
+# For better thread safety and channels
+crossbeam-channel = "0.5"
+
+[dev-dependencies]
+# For testing
+serial_test = "2.0"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

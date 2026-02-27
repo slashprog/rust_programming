@@ -1,0 +1,20 @@
+[features]
+testvar = ["serde"]
+
+[package]
+name = "cfg_test"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+serde = { version = "1.0", optional = true }
+
+[profile.release]
+opt-level = 3
+debug = false
+lto = true
+codegen-units = 1
+incremental = false
+panic = 'abort'
+strip = "symbols"
+

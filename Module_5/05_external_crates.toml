@@ -1,0 +1,24 @@
+# Cargo.toml
+[package]
+name = "web_app"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# From crates.io
+serde = { version = "1.0", features = ["derive"] }
+rand = "0.8.5"
+regex = "1.5"
+
+# From git repository
+tokio = { git = "https://github.com/tokio-rs/tokio", branch = "master" }
+
+# From local path
+my_local_lib = { path = "../my_local_lib" }
+
+# With platform-specific dependencies
+[target.'cfg(target_os = "linux")'.dependencies]
+inotify = "0.9"
+
+[target.'cfg(windows)'.dependencies]
+winapi = "0.3"
