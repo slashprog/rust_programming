@@ -1,0 +1,138 @@
+// WARNING: This output format is intended for human consumers only
+// and is subject to change without notice. Knock yourself out.
+// HINT: See also -Z dump-mir for MIR at specific points during compilation.
+fn main() -> () {
+    let mut _0: ();
+    let mut _1: std::string::String;
+    let _3: ();
+    let mut _4: &str;
+    let _5: ();
+    let mut _6: std::fmt::Arguments<'_>;
+    let mut _8: &&mut std::string::String;
+    let mut _10: core::fmt::rt::Argument<'_>;
+    let mut _11: &[u8; 9];
+    let _12: &[core::fmt::rt::Argument<'_>; 1];
+    let _13: ();
+    let mut _14: &mut std::string::String;
+    let mut _15: &str;
+    let _16: ();
+    let mut _17: std::fmt::Arguments<'_>;
+    let mut _19: &std::string::String;
+    let mut _21: core::fmt::rt::Argument<'_>;
+    let mut _22: &[u8; 9];
+    let _23: &[core::fmt::rt::Argument<'_>; 1];
+    let mut _24: &&mut std::string::String;
+    let mut _25: &std::string::String;
+    scope 1 {
+        debug x => _1;
+        let _2: &mut std::string::String;
+        scope 2 {
+            debug y => _2;
+            let _7: (&&mut std::string::String,);
+            let _18: (&std::string::String,);
+            scope 3 {
+                debug args => _7;
+                let _9: [core::fmt::rt::Argument<'_>; 1];
+                scope 4 {
+                    debug args => _9;
+                }
+            }
+            scope 5 {
+                debug args => _18;
+                let _20: [core::fmt::rt::Argument<'_>; 1];
+                scope 6 {
+                    debug args => _20;
+                }
+            }
+        }
+    }
+
+    bb0: {
+        _1 = <String as From<&str>>::from(const "Hello") -> [return: bb1, unwind continue];
+    }
+
+    bb1: {
+        _2 = &mut _1;
+        _4 = const ", world!";
+        _3 = String::push_str(copy _2, move _4) -> [return: bb2, unwind: bb11];
+    }
+
+    bb2: {
+        _8 = &_2;
+        _7 = (move _8,);
+        _24 = copy (_7.0: &&mut std::string::String);
+        _10 = core::fmt::rt::Argument::<'_>::new_display::<&mut String>(copy _24) -> [return: bb3, unwind: bb11];
+    }
+
+    bb3: {
+        _9 = [move _10];
+        _11 = const b"\x04y = \xc0\x01\n\x00";
+        _12 = &_9;
+        _6 = Arguments::<'_>::new::<9, 1>(move _11, copy _12) -> [return: bb4, unwind: bb11];
+    }
+
+    bb4: {
+        _5 = _print(move _6) -> [return: bb5, unwind: bb11];
+    }
+
+    bb5: {
+        _14 = &mut _1;
+        _15 = const "! Welcome to borrowing rules.";
+        _13 = String::push_str(move _14, move _15) -> [return: bb6, unwind: bb11];
+    }
+
+    bb6: {
+        _19 = &_1;
+        _18 = (move _19,);
+        _25 = copy (_18.0: &std::string::String);
+        _21 = core::fmt::rt::Argument::<'_>::new_display::<String>(copy _25) -> [return: bb7, unwind: bb11];
+    }
+
+    bb7: {
+        _20 = [move _21];
+        _22 = const b"\x04x = \xc0\x01\n\x00";
+        _23 = &_20;
+        _17 = Arguments::<'_>::new::<9, 1>(move _22, copy _23) -> [return: bb8, unwind: bb11];
+    }
+
+    bb8: {
+        _16 = _print(move _17) -> [return: bb9, unwind: bb11];
+    }
+
+    bb9: {
+        drop(_1) -> [return: bb10, unwind continue];
+    }
+
+    bb10: {
+        return;
+    }
+
+    bb11 (cleanup): {
+        drop(_1) -> [return: bb12, unwind terminate(cleanup)];
+    }
+
+    bb12 (cleanup): {
+        resume;
+    }
+}
+
+alloc5 (size: 9, align: 1) {
+    04 78 20 3d 20 c0 01 0a 00                      │ .x = ....
+}
+
+alloc4 (size: 29, align: 1) {
+    0x00 │ 21 20 57 65 6c 63 6f 6d 65 20 74 6f 20 62 6f 72 │ ! Welcome to bor
+    0x10 │ 72 6f 77 69 6e 67 20 72 75 6c 65 73 2e          │ rowing rules.
+}
+
+alloc3 (size: 9, align: 1) {
+    04 79 20 3d 20 c0 01 0a 00                      │ .y = ....
+}
+
+alloc2 (size: 8, align: 1) {
+    2c 20 77 6f 72 6c 64 21                         │ , world!
+}
+
+alloc1 (size: 5, align: 1) {
+    48 65 6c 6c 6f                                  │ Hello
+}

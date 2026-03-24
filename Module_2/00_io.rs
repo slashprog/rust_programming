@@ -6,9 +6,9 @@ fn main() {
     println!("Length of input string: {}, address = {:p}", input.len(), &input);
 
     println!("Enter your name:");
-    io::stdin()
-        .read_line(&mut input)
-        .expect("Failed to read line");
+    io::stdin() // Accesses the standard input stream (keyboard input)
+        .read_line(&mut input)  // Reads a line of input from the user and stores it in the `input` variable
+        .expect("Failed to read line"); // .expect() causes the program to panic if reading input fails
     
     println!("Length of input string: {}, address = {:p}", input.len(), &input);
 
