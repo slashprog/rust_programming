@@ -39,3 +39,21 @@ impl Summarizable for Tweet {
     }
     // Uses default author()
 }
+
+fn main() {
+    let article = NewsArticle {
+        headline: String::from("Rust is awesome"),
+        location: String::from("Internet"),
+    };
+
+    let tweet = Tweet {
+        username: String::from("user123"),
+        content: String::from("Hello, world!"),
+    };
+
+    println!("Article summary: {}", article.summary());
+    println!("Article author: {}", article.author());
+
+    println!("Tweet summary: {}", tweet.summary());
+    println!("Tweet author: {}", tweet.author());
+}

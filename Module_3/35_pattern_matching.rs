@@ -30,3 +30,11 @@ fn describe_number(n: i32) -> &'static str {
         _ => "something else",          // Default
     }
 }
+
+fn main() {
+    let coin = Coin::Quarter(String::from("California"));
+    println!("Value in cents: {}", value_in_cents(coin));
+
+    let number = -5;
+    println!("Description: {}", describe_number(number));
+}

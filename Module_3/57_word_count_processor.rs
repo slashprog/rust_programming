@@ -108,6 +108,10 @@ fn main() {
         "concurrency is fun",
         "rust is awesome",  // Duplicate
         "goodbye",
+        "this is a test string with multiple words",
+        "hello world",  // Duplicate
+        "another line to process",
+        "rust programming language"
     ];
     
     for line in lines {
@@ -123,7 +127,7 @@ fn main() {
         let mut total = 0;
         let mut received = 0;
         
-        while received < 6 {  // 6 lines processed
+        while received < 10 {  // 10 lines processed
             match result_rx.recv_timeout(Duration::from_secs(1)) {
                 Ok(count) => {
                     total += count;

@@ -11,13 +11,13 @@ fn main() {
     // Collect from vector of tuples
     let teams = vec![String::from("Blue"), String::from("Yellow")];
     let initial_scores = vec![10, 50];
-    let scores: HashMap<_, _> = teams.into_iter()
+    let mut scores: HashMap<_, _> = teams.into_iter()
                                      .zip(initial_scores.into_iter())
                                      .collect();
     
     // Accessing
     let team_name = String::from("Blue");
-    let score = scores.get(&team_name);  // Returns Option<&V>
+    let _score = scores.get(&team_name);  // Returns Option<&V>
     
     // Iterating
     for (key, value) in &scores {
@@ -36,7 +36,10 @@ fn main() {
     
     // Ownership: Keys and values are moved!
     let field_name = String::from("Favorite color");
-    let field_value = String::from("Blue");
+    // let field_value = String::from("Blue");
+    let field_value = 100;
     scores.insert(field_name, field_value);
     // field_name and field_value are MOVED, can't use!
+
+    println!("Scores: {:?}", scores);
 }
