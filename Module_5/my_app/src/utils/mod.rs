@@ -1,5 +1,5 @@
-mod tools;
-mod helper;
+//mod tools;
+// mod helper;
 
 pub fn multiply(x: i32, y: i32) -> i32 {
     println!("Multiplying {} and {}", x, y);
@@ -8,6 +8,7 @@ pub fn multiply(x: i32, y: i32) -> i32 {
     x * y
 }
 
-// pub mod helper;
+pub mod helper;
+pub mod tools; // linking the tools module
 
 // pub mod tools; // linking the tools module

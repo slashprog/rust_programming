@@ -310,12 +310,8 @@ fn format_timestamp(timestamp: u64) -> String {
     // Simple formatting - in production, use chrono
     format!("{}", timestamp)
 }
-```
 
-## Step 9: Client Main Entry Point
 
-```rust
-// src/bin/client.rs
 use std::time::Duration;
 use log::info;
 use env_logger::Env;

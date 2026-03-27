@@ -7,5 +7,5 @@ fn main() {
     let r = utils::multiply(4, 2);
     println!("Result of multiplication: {}", r);
 
-    // utils::tools::testfn();
+    utils::tools::testfn();
 }
