@@ -15,8 +15,11 @@ fn main() {
     let mut values :[u8; 5] = [10, 20, 30, 40, 50];
     println!("Array: {:?}", values);
 
-    my_tuple.0 = "test data";
+    my_tuple.0 = 55;
     println!("Updated first element: {}", my_tuple.0);  // 55
+
+    println!("Updated tuple: {:?}", my_tuple);
+
 
     values[0] = 100;
     println!("Updated array: {:?}", values);

@@ -1,5 +1,5 @@
 fn main() {
-    let y = 20;
+    let y = 200;
 
     let result = if y > 50 {
         "Greater than 50"

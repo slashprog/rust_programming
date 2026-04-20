@@ -4,8 +4,9 @@ fn main() {
     
     // ptr is moved/dropped here? Let's see what happens...
     drop(ptr);  // Explicitly drop (optional, would happen automatically anyway)
-    
-    drop(ptr);
+    println!("Value after drop: {}", ptr);  // ERROR: use of moved value: `ptr`
+
+    //drop(ptr);
     // THIS LINE WOULD CAUSE A COMPILE ERROR:
     // println!("Value: {}", ptr);  // ERROR: use of moved value: `ptr`
 }

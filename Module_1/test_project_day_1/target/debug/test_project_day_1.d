@@ -1,0 +1,1 @@
+/Users/chandra/Training/Rust_Programming/rust_programming/Module_1/test_project_day_1/target/debug/test_project_day_1: /Users/chandra/Training/Rust_Programming/rust_programming/Module_1/test_project_day_1/src/main.rs

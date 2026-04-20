@@ -7,7 +7,7 @@
 #include <math.h>
 #include <pthread.h>
 
-#define NUM_SERIES 100000000
+#define NUM_SERIES 10000000
 #define NUM_THREADS 4
 
 typedef struct thread_args_struct {

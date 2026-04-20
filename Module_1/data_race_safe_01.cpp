@@ -20,8 +20,10 @@ int main() {
         
         handles.push_back(std::thread([c, v]() {
             // Lock the mutex (equivalent to c.lock())
-            std::lock_guard<std::mutex> lock(*c);
-            *v += 1'000'000;  // C++14 digit separator
+            for (int i = 0; i < 1'000'000; i++) {
+                std::lock_guard<std::mutex> lock(*c);
+                *v += 1; 
+            }   
         }));
     }
     

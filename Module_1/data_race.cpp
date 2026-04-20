@@ -4,7 +4,7 @@
 int counter = 0; // Shared mutable state — danger!
 
 void increment() {
-    for (int i = 0; i < 1000000; i++)
+    for (int i = 0; i < 1'000'000; i++)
         counter++; // RACE CONDITION: read-modify-write is not atomic
 }
 
