@@ -1,10 +1,13 @@
 fn main() {
-    let number = 3;
+    let number = 2;
     
     // Basic match
     match number {
         1 => println!("One!"),
-        2 => println!("Two!"),
+        2 => { 
+              println!("Two!"); 
+              println!("Still two!");
+        },
         3 => println!("Three!"),
         _ => println!("Something else!"),  // Default case
     }
