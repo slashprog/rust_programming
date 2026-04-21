@@ -14,7 +14,7 @@ loop { break 42; }             // loop expression (returns 42)
 // STATEMENTS (do something, end with semicolon)
 let x = 5;                     // variable binding statement
 x = 10;                        // assignment statement
-println!("hello");              // macro invocation statement
+println!("hello");             // macro invocation statement
 ;                              // empty statement
 ```
 
@@ -735,4 +735,6 @@ impl<'a, T> Drop for MyGuard<'a, T> {
 }
 ```
 
-This cheatsheet covers the essential Rust syntax and grammar. For more details, refer to [The Rust Reference](https://doc.rust-lang.org/reference/) or [The Rust Book](https://doc.rust-lang.org/book/).
+This cheatsheet covers the essential Rust syntax and grammar. 
+For more details, refer to [The Rust Reference](https://doc.rust-lang.org/reference/) 
+or [The Rust Book](https://doc.rust-lang.org/book/).

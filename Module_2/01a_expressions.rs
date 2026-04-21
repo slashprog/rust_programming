@@ -1,5 +1,3 @@
-#[warn(unused_doc_comments)]
-
 fn main() {
     let x = { 
         let y = 0xa;
