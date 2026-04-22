@@ -39,3 +39,24 @@ impl Summary for Tweet {
         format!("@{}", self.username)
     }
 }
+
+fn main() {
+    let article = NewsArticle {
+        headline: String::from("Rust is awesome!"),
+        location: String::from("Internet"),
+        author: String::from("Jane Doe"),
+        content: String::from("Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety."),
+    };
+    println!("New article available! {}", article.summarize());
+    println!("Author: {}", article.summarize_author());
+
+    let tweet = Tweet {
+        username: String::from("rustacean"),
+        content: String::from("I love Rust!"),
+        reply: false,
+        retweet: false,
+    };
+
+    println!("New tweet available! {}", tweet.summarize());
+    println!("Author: {}", tweet.summarize_author());
+}

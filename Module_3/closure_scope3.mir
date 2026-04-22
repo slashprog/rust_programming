@@ -1,0 +1,288 @@
+// WARNING: This output format is intended for human consumers only
+// and is subject to change without notice. Knock yourself out.
+// HINT: See also -Z dump-mir for MIR at specific points during compilation.
+fn create_closure(_1: String) -> {closure@closure_scope3.rs:3:5: 3:24} {
+    debug time => _1;
+    let mut _0: {closure@closure_scope3.rs:3:5: 3:24};
+    let _2: std::string::String;
+    let mut _3: &str;
+    scope 1 {
+        debug greeting => _2;
+    }
+
+    bb0: {
+        _3 = const "Hello, ";
+        _2 = <str as ToString>::to_string(move _3) -> [return: bb1, unwind: bb2];
+    }
+
+    bb1: {
+        _0 = {closure@closure_scope3.rs:3:5: 3:24} { greeting: move _2, time: move _1 };
+        return;
+    }
+
+    bb2 (cleanup): {
+        drop(_1) -> [return: bb3, unwind terminate(cleanup)];
+    }
+
+    bb3 (cleanup): {
+        resume;
+    }
+}
+
+alloc1 (size: 7, align: 1) {
+    48 65 6c 6c 6f 2c 20                            │ Hello, 
+}
+
+fn create_closure::{closure#0}(_1: &{closure@closure_scope3.rs:3:5: 3:24}, _2: String) -> String {
+    debug user => _2;
+    debug greeting => ((*_1).0: std::string::String);
+    debug time => ((*_1).1: std::string::String);
+    let mut _0: std::string::String;
+    let mut _3: std::string::String;
+    let mut _4: std::fmt::Arguments<'_>;
+    let _5: (&std::string::String, &std::string::String, &std::string::String);
+    let mut _6: &std::string::String;
+    let mut _7: &std::string::String;
+    let mut _8: &std::string::String;
+    let mut _10: core::fmt::rt::Argument<'_>;
+    let mut _11: core::fmt::rt::Argument<'_>;
+    let mut _12: core::fmt::rt::Argument<'_>;
+    let mut _13: &[u8; 17];
+    let _14: &[core::fmt::rt::Argument<'_>; 3];
+    let mut _15: &std::string::String;
+    let mut _16: &std::string::String;
+    let mut _17: &std::string::String;
+    scope 1 {
+        debug args => _5;
+        let _9: [core::fmt::rt::Argument<'_>; 3];
+        scope 2 {
+            debug args => _9;
+        }
+    }
+
+    bb0: {
+        _6 = &((*_1).0: std::string::String);
+        _7 = &_2;
+        _8 = &((*_1).1: std::string::String);
+        _5 = (move _6, move _7, move _8);
+        _15 = copy (_5.0: &std::string::String);
+        _10 = core::fmt::rt::Argument::<'_>::new_display::<String>(copy _15) -> [return: bb1, unwind: bb8];
+    }
+
+    bb1: {
+        _16 = copy (_5.1: &std::string::String);
+        _11 = core::fmt::rt::Argument::<'_>::new_display::<String>(copy _16) -> [return: bb2, unwind: bb8];
+    }
+
+    bb2: {
+        _17 = copy (_5.2: &std::string::String);
+        _12 = core::fmt::rt::Argument::<'_>::new_display::<String>(copy _17) -> [return: bb3, unwind: bb8];
+    }
+
+    bb3: {
+        _9 = [move _10, move _11, move _12];
+        _13 = const b"\xc0\x02, \xc0\x07, Good \xc0\x01!\x00";
+        _14 = &_9;
+        _4 = Arguments::<'_>::new::<17, 3>(move _13, copy _14) -> [return: bb4, unwind: bb8];
+    }
+
+    bb4: {
+        _3 = format(move _4) -> [return: bb5, unwind: bb8];
+    }
+
+    bb5: {
+        _0 = must_use::<String>(move _3) -> [return: bb6, unwind: bb8];
+    }
+
+    bb6: {
+        drop(_2) -> [return: bb7, unwind continue];
+    }
+
+    bb7: {
+        return;
+    }
+
+    bb8 (cleanup): {
+        drop(_2) -> [return: bb9, unwind terminate(cleanup)];
+    }
+
+    bb9 (cleanup): {
+        resume;
+    }
+}
+
+alloc2 (size: 17, align: 1) {
+    0x00 │ c0 02 2c 20 c0 07 2c 20 47 6f 6f 64 20 c0 01 21 │ .., .., Good ..!
+    0x10 │ 00                                              │ .
+}
+
+fn main() -> () {
+    let mut _0: ();
+    let _1: {closure@closure_scope3.rs:3:5: 3:24};
+    let mut _2: std::string::String;
+    let mut _3: &str;
+    let mut _5: &{closure@closure_scope3.rs:3:5: 3:24};
+    let mut _6: (std::string::String,);
+    let mut _7: std::string::String;
+    let mut _8: &str;
+    let mut _10: &{closure@closure_scope3.rs:3:5: 3:24};
+    let mut _11: (std::string::String,);
+    let mut _12: std::string::String;
+    let mut _13: &str;
+    let _14: ();
+    let mut _15: std::fmt::Arguments<'_>;
+    let mut _17: &std::string::String;
+    let mut _19: core::fmt::rt::Argument<'_>;
+    let mut _20: &[u8; 4];
+    let _21: &[core::fmt::rt::Argument<'_>; 1];
+    let _22: ();
+    let mut _23: std::fmt::Arguments<'_>;
+    let mut _25: &std::string::String;
+    let mut _27: core::fmt::rt::Argument<'_>;
+    let mut _28: &[u8; 4];
+    let _29: &[core::fmt::rt::Argument<'_>; 1];
+    let mut _30: &std::string::String;
+    let mut _31: &std::string::String;
+    scope 1 {
+        debug greet_morning => _1;
+        let _4: std::string::String;
+        scope 2 {
+            debug result1 => _4;
+            let _9: std::string::String;
+            scope 3 {
+                debug result2 => _9;
+                let _16: (&std::string::String,);
+                let _24: (&std::string::String,);
+                scope 4 {
+                    debug args => _16;
+                    let _18: [core::fmt::rt::Argument<'_>; 1];
+                    scope 5 {
+                        debug args => _18;
+                    }
+                }
+                scope 6 {
+                    debug args => _24;
+                    let _26: [core::fmt::rt::Argument<'_>; 1];
+                    scope 7 {
+                        debug args => _26;
+                    }
+                }
+            }
+        }
+    }
+
+    bb0: {
+        _3 = const "morning";
+        _2 = <str as ToString>::to_string(move _3) -> [return: bb1, unwind continue];
+    }
+
+    bb1: {
+        _1 = create_closure(move _2) -> [return: bb2, unwind continue];
+    }
+
+    bb2: {
+        _5 = &_1;
+        _8 = const "Alice";
+        _7 = <str as ToString>::to_string(move _8) -> [return: bb3, unwind: bb18];
+    }
+
+    bb3: {
+        _6 = (move _7,);
+        _4 = <{closure@closure_scope3.rs:3:5: 3:24} as Fn<(String,)>>::call(move _5, move _6) -> [return: bb4, unwind: bb18];
+    }
+
+    bb4: {
+        _10 = &_1;
+        _13 = const "Bob";
+        _12 = <str as ToString>::to_string(move _13) -> [return: bb5, unwind: bb17];
+    }
+
+    bb5: {
+        _11 = (move _12,);
+        _9 = <{closure@closure_scope3.rs:3:5: 3:24} as Fn<(String,)>>::call(move _10, move _11) -> [return: bb6, unwind: bb17];
+    }
+
+    bb6: {
+        _17 = &_4;
+        _16 = (move _17,);
+        _30 = copy (_16.0: &std::string::String);
+        _19 = core::fmt::rt::Argument::<'_>::new_display::<String>(copy _30) -> [return: bb7, unwind: bb16];
+    }
+
+    bb7: {
+        _18 = [move _19];
+        _20 = const b"\xc0\x01\n\x00";
+        _21 = &_18;
+        _15 = Arguments::<'_>::new::<4, 1>(move _20, copy _21) -> [return: bb8, unwind: bb16];
+    }
+
+    bb8: {
+        _14 = std::io::_print(move _15) -> [return: bb9, unwind: bb16];
+    }
+
+    bb9: {
+        _25 = &_9;
+        _24 = (move _25,);
+        _31 = copy (_24.0: &std::string::String);
+        _27 = core::fmt::rt::Argument::<'_>::new_display::<String>(copy _31) -> [return: bb10, unwind: bb16];
+    }
+
+    bb10: {
+        _26 = [move _27];
+        _28 = const b"\xc0\x01\n\x00";
+        _29 = &_26;
+        _23 = Arguments::<'_>::new::<4, 1>(move _28, copy _29) -> [return: bb11, unwind: bb16];
+    }
+
+    bb11: {
+        _22 = std::io::_print(move _23) -> [return: bb12, unwind: bb16];
+    }
+
+    bb12: {
+        drop(_9) -> [return: bb13, unwind: bb17];
+    }
+
+    bb13: {
+        drop(_4) -> [return: bb14, unwind: bb18];
+    }
+
+    bb14: {
+        drop(_1) -> [return: bb15, unwind continue];
+    }
+
+    bb15: {
+        return;
+    }
+
+    bb16 (cleanup): {
+        drop(_9) -> [return: bb17, unwind terminate(cleanup)];
+    }
+
+    bb17 (cleanup): {
+        drop(_4) -> [return: bb18, unwind terminate(cleanup)];
+    }
+
+    bb18 (cleanup): {
+        drop(_1) -> [return: bb19, unwind terminate(cleanup)];
+    }
+
+    bb19 (cleanup): {
+        resume;
+    }
+}
+
+alloc9 (size: 4, align: 1) {
+    c0 01 0a 00                                     │ ....
+}
+
+alloc8 (size: 3, align: 1) {
+    42 6f 62                                        │ Bob
+}
+
+alloc7 (size: 5, align: 1) {
+    41 6c 69 63 65                                  │ Alice
+}
+
+alloc6 (size: 7, align: 1) {
+    6d 6f 72 6e 69 6e 67                            │ morning
+}
