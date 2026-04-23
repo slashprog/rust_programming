@@ -10,7 +10,9 @@ fn main() {
         println!("Thread name: {:?}", thread::current().name());
     }).unwrap();
     
-    handle.join().unwrap();
+    handle.join().unwrap_or_else(|e| {
+        println!("Thread panicked: {:?}", e);
+    });
     
     // Thread information
     let current = thread::current();

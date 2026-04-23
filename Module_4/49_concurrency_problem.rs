@@ -3,16 +3,22 @@ use std::thread;
 fn main() {
     let mut counter = 0; 
     
-    let handle = thread::spawn(|| {
-        // counter copied here! Why? counter is on stack (Copy Trait)
-        let mut counter = 10;
-        counter += 1;  
-        println!("Counter in thread: {}", counter);
+    let handle1 = thread::spawn(move || {
+        for _ in 0..1_000_000 {
+            counter += 1;
+        }
+        println!("In thread 1: counter = {}", counter);
     });
-    println!("main thread: waiting for worker thread to complete.");
-    println!("{}", counter);  
 
-    handle.join().unwrap();
+    let handle2 = thread::spawn(move || {
+        for _ in 0..1_000_000 {
+            counter += 1;
+        }
+        println!("In thread 2: counter = {}", counter);
+    });
+
+    handle1.join().unwrap();
+    handle2.join().unwrap();
     println!("main thread: worker thread has completed: counter = {}", counter);
 }
 

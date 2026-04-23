@@ -20,7 +20,16 @@ fn main() {
             // val MOVED, can't use after send!
         }
     });
-    
+
+  //  for i in 0..1 {
+  //      let rx = rx.clone(); // Fails! Receiver cannot be cloned, only the sender can be cloned. 
+  //      thread::spawn(move || {
+  //          for recieved in rx {
+  //              println!("In thread {}: Got: {}", i, recieved);
+  //          }
+  //      });
+  //  }
+
     // Receive data in main thread
     for received in rx {
         println!("Got: {}", received);
