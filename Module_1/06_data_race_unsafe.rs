@@ -21,6 +21,6 @@ fn main() {
     // Reading mutable static - also requires unsafe!
     unsafe {
         println!("Result: {}", counter); // May print incorrect result due to data race
-
     }
+
 }
