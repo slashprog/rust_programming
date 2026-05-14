@@ -22,6 +22,17 @@ impl Area for Square {
     }
 }
 
+struct Triangle {
+    base: f64,
+    height: f64,
+}
+
+impl Area for Triangle {
+    fn area(&self) -> f64 {
+        0.5 * self.base * self.height
+    }
+}
+
 fn find_area(shape: &impl Area) -> f64 {
     shape.area()
 }
@@ -30,6 +41,7 @@ fn create_shape(shape_type: &str) -> Box<dyn Area> {
     match shape_type {
         "circle" => Box::new(Circle { radius: 3.0 }),
         "square" => Box::new(Square { side: 2.0 }),
+        "triangle" => Box::new(Triangle { base: 3.0, height: 4.0 }),
         _ => panic!("Unknown shape type"),
     }
 }
@@ -43,6 +55,9 @@ fn main() {
 
     let shape = create_shape("circle");
     println!("Created shape area: {}", shape.area());
+
+    let shape = create_shape("triangle");
+    println!("Created triangle, area: {}", shape.area());
 
 }
 
