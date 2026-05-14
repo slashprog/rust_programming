@@ -4,6 +4,7 @@ fn main() {
     // Creating HashMap
     let mut scores = HashMap::new();
     
+
     // Inserting
     scores.insert(String::from("Blue"), 10);
     scores.insert(String::from("Yellow"), 50);

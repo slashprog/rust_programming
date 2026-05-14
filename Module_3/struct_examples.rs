@@ -7,11 +7,11 @@ struct User {
     active: bool,
 }
 
-struct Color(i32, i32, i32);
+struct Color(i32, i32, i32); // Tuple struct with three i32 fields representing RGB values
 struct Point(i32, i32, i32);
 
 #[derive(Debug)]
-struct AlwaysEqual;
+struct AlwaysEqual; // Unit-like struct with no fields.
 
 fn main() {
     let user1 = User {
@@ -21,9 +21,10 @@ fn main() {
         sign_in_count: 1,
     };
 
-    let black = Color(0, 0, 0);
+
+    let black = Color(0, 0, 0);  // Creating an instance of Tuple Struct
     let origin = Point(0, 0, 0);
-    let subject = AlwaysEqual;
+    let subject = AlwaysEqual; // Creating an instance of Unit-like Struct
 
     println!("User email: {}", user1.email);
     println!("User username: {}", user1.username);
@@ -34,6 +35,17 @@ fn main() {
     println!("Origin point: ({}, {}, {})", origin.0, origin.1, origin.2);
     println!("Subject is always equal: {:?}", subject);
 
-    println!("user1 = {:?}", user1); // This will work because User now implements the Debug trait
+    println!("user1 = {:#?}", user1); // This will work because User now implements the Debug trait
+
+
+    let user2 = User {
+        email: String::from("another@example.com"),
+        ..user1 // Using struct update syntax to create user2 based on user1
+    };
+
+    println!("user2 = {:#?}", user2); // This will also work because User implements the Debug trait
+
+
+
 
 }
